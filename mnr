@@ -1,0 +1,26 @@
+home
+enable
+configure
+  routing
+    mode multi-node-routing defer
+    multi-node-routing
+      create cspf neighbor solace-1
+          ! 55555 is the default SMF port which is used if compression is off
+          ! 55003 is the port if compression is being used
+          connect-via 172.17.0.2:55555
+          ! Default routing control port is 55556
+          ! control-port 55556
+          no compressed-data
+          no ssl-data
+          link-cost 100
+          exit
+        exit
+      exit
+    ! would also assign routing interfaces here
+    interface intf0
+    ! enable routing protocol
+    no shutdown
+    exit
+  exit
+reload
+  

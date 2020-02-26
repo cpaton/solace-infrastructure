@@ -1,0 +1,49 @@
+POST http://10.0.75.1:8082/SEMP
+Authorization: Basic admin admin
+content-type: application/xml
+
+<rpc>
+    <show>
+        <client>
+            <name>*</name>
+        </client>
+    </show>
+</rpc>
+
+###
+
+POST http://10.0.75.1:8082/SEMP
+Authorization: Basic admin admin
+content-type: application/xml
+
+<rpc><show><hostname /></show></rpc>
+
+###
+
+POST http://10.0.75.1:8081/SEMP
+Authorization: Basic admin admin
+content-type: application/xml
+
+<rpc><show><cspf><neighbor><physical-router-name>*</physical-router-name></neighbor></cspf></show></rpc>
+
+###
+
+POST http://10.0.75.1:8081/SEMP
+Authorization: Basic admin admin
+content-type: application/xml
+
+<rpc>
+  <routing>
+    <cspf>
+      <neighbor>
+        <physical-router-name>solace-2</physical-router-name>
+        <connect-via>
+          <ip-port>172.17.0.3:55555</ip-port>
+        </connect-via>
+        <no>
+            <shutdown />
+        </no>
+      </neighbor>
+    </cspf>
+  </routing>
+</rpc>
