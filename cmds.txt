@@ -1,2 +1,2 @@
-docker container rm --force (docker container ps --all --quiet); docker volume rm solace-1-var solace-2-var
+docker container rm --force (docker container ps --all --quiet); docker volume rm (docker volume ls --filter name='solace-.+-var' --quiet)
 
